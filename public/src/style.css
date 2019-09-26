@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    /* Ändras pga dålig contrast mot vit bakgrund */
+    color: #2b2bff !important;
+}
+
+.browsers .btn-light {
+    border: 1px solid #ddd;
+}
+
+.test {
+    margin-bottom: 5vh;
+}
+
+.browsers .extender {
+    display: none;
+}
+
+.overview td {
+    width: 50%;
+}
+
+.browsers .opsys {
+    font-size: 0.7em;
+}

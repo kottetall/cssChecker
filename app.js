@@ -1,5 +1,7 @@
 "use strict"
 
+// !!! Mappen "properties" behövs för att köra programmet. Dock har jag ännu inte kollat licenserna som gäller och därför följs den inte av GIT
+
 const fs = require("fs");
 const fileCheck = "./css/testfil.css" //filen som ska läsas
 const fileSource = fs.readdirSync("./properties/") // hämtar alla grundfiler från moz - array med filnamn + ändelse
@@ -18,6 +20,7 @@ const browsers = [
 
 fs.readFile(fileCheck, "utf-8", (err, string) => {
     // läser in testfil test.css
+    console.log(typeof fileCheck)
     if (err) {
         console.log(err)
     } else {
@@ -26,7 +29,9 @@ fs.readFile(fileCheck, "utf-8", (err, string) => {
         const customJson = createCustomJson(props["commonProps"]) //Skapar Json med de egenskaper som finns i projektet tillsammans med vilka webbläsare/versioner som de är kompatibla med
         const compatList = compatCheck(customJson) //Listar vad som är komp med resp webbläsare och sorterar detta utifrån den första versionen när det blev tillagd
         // console.log(compatList)
-        console.log(props["missingProps"])
+        // console.log(props["missingProps"])
+        // console.log(compatList)
+
     }
 })
 

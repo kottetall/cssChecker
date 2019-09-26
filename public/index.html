@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="src/style.css">
+    <script src="https://kit.fontawesome.com/f8762344d3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Check my CSS</title>
+</head>
+
+<body class="bg-light">
+
+    <section class="container text-center">
+        <h1>Check my CSS</h1>
+        <p>This page is ment to be a testing site to check how backwards compatible your CSS is. <br>
+            <br>
+            You'll be able to see the oldest version that your CSS supports as well as which properties is 'holding you
+            back'. <br>
+            <br>
+            This check picks out all the properties in your CSS and crosschecks them against the properties that's
+            available through <a href="http://https://github.com/mdn/browser-compat-data" target="_blank">MDNs Github
+                repo</a>. Then it
+            searches which version(if any) of a specific browser, was the first to start supporting the property.
+        </p>
+    </section>
+
+    <section class="inputs container mt-4 mb-5 text-center">
+        <button type="button" class="test btn btn-secondary btn-lg btn-block">TEST BUTTON</button>
+
+        <h2 class="w-75 mx-auto mb-3">Choose which CSS file(s) to go through</h2>
+
+        <input type="file" name="fileinput" id="fileinput" accept=".css" class=""
+            aria-label="Choose the files you want to check" multiple>
+    </section>
+
+    <section class="container flex-sm-row flex-column flex-wrap justify-content-around">
+        <div class="row">
+            <div class="col-sm-8 align-self-center">
+                <p class="h2 text-center">Your CSS is backwards compatible with the following
+                    browsers/versions</p>
+
+            </div>
+            <div class="col-12 col-sm-4">
+                <h2 class="text-center border-bottom">Overview</h2>
+                <table class="overview table table-sm table-borderless">
+                    <thead class="font-weight-bold">
+                        <tr>
+                            <td>Browser</td>
+                            <td class="text-center">Version</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-browser="chrome">
+                            <td>Chrome</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                        <tr data-browser="chrome_android">
+                            <td>Chrome(android)</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                        <tr data-browser="edge">
+                            <td>Edge</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                        <tr data-browser="ie">
+                            <td>Internet Explorer</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                        <tr data-browser="firefox">
+                            <td>Firefox</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                        <tr data-browser="firefox_android">
+                            <td>Firefox(android)</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                        <tr data-browser="opera">
+                            <td>Opera</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                        <tr data-browser="safari">
+                            <td>Safari</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                        <tr data-browser="safari_ios">
+                            <td>Safari IOs</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                        <tr data-browser="webview_android">
+                            <td>Webview(android)</td>
+                            <td class="text-center">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Ta bort detta sen och ersätt med JS -->
+
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="text-center  mb-3">Detailed view</h2>
+
+        <div class="browsers d-flex flex-sm-row flex-column flex-wrap justify-content-around">
+            <div class="text-center pb-3">
+                <h3 title="Chrome" aria-label="Results list for Chrome">
+                    <i class="fab fa-chrome"></i>
+                </h3>
+                <table class="table table-sm" data-browser="chrome">
+                    <tr>
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Version added
+                        </th>
+                    </tr>
+                </table>
+                <button type="button" class="extender btn btn-light btn-sm btn-block"
+                    title="Extend list with 5 more properties">5+</button>
+            </div>
+            <div class="text-center pb-3">
+                <h3 title="Chrome(android)" aria-label="Results list for Chrome(android)">
+                    <i class="fab fa-chrome"></i><i class="fab fa-android opsys"></i>
+                </h3>
+                <table class="table table-sm" data-browser="chrome_android">
+                    <tr>
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Version added
+                        </th>
+                    </tr>
+                </table>
+                <button type="button" class="extender btn btn-light btn-sm btn-block"
+                    title="Extend list with 5 more properties">5+</button>
+            </div>
+            <div class="text-center pb-3">
+                <h3 title="Edge" aria-label="Results list for Edge">
+                    <i class="fab fa-edge"></i>
+                </h3>
+                <table class="table table-sm" data-browser="edge">
+                    <tr>
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Version added
+                        </th>
+                    </tr>
+                </table>
+                <button type="button" class="extender btn btn-light btn-sm btn-block"
+                    title="Extend list with 5 more properties">5+</button>
+            </div>
+            <div class="text-center pb-3">
+                <h3 title="Internet Explorer" aria-label="Results list for Internet Explorer">
+                    <i class="fab fa-internet-explorer"></i>
+                </h3>
+                <table class="table table-sm" data-browser="ie">
+                    <tr>
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Version added
+                        </th>
+                    </tr>
+                </table>
+                <button type="button" class="extender btn btn-light btn-sm btn-block"
+                    title="Extend list with 5 more properties">5+</button>
+            </div>
+            <div class="text-center pb-3">
+                <h3 title="Firefox" aria-label="Results list for Firefox">
+                    <i class="fab fa-firefox"></i>
+                </h3>
+                <table class="table table-sm" data-browser="firefox">
+                    <tr>
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Version added
+                        </th>
+                    </tr>
+                </table>
+                <button type="button" class="extender btn btn-light btn-sm btn-block"
+                    title="Extend list with 5 more properties">5+</button>
+            </div>
+            <div class="text-center pb-3">
+                <h3 title="Firefox(android)" aria-label="Results list for Firefox(android)">
+                    <i class="fab fa-firefox"></i><i class="fab fa-android opsys"></i>
+                </h3>
+                <table class="table table-sm" data-browser="firefox_android">
+                    <tr>
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Version added
+                        </th>
+                    </tr>
+                </table>
+                <button type="button" class="extender btn btn-light btn-sm btn-block"
+                    title="Extend list with 5 more properties">5+</button>
+            </div>
+            <div class="text-center pb-3">
+                <h3 title="Opera" aria-label="Results list for Opera">
+                    <i class="fab fa-opera"></i>
+                </h3>
+                <table class="table table-sm" data-browser="opera">
+                    <tr>
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Version added
+                        </th>
+                    </tr>
+                </table>
+                <button type="button" class="extender btn btn-light btn-sm btn-block"
+                    title="Extend list with 5 more properties">5+</button>
+            </div>
+            <div class="text-center pb-3">
+                <h3 title="Safari" aria-label="Results list for Safari">
+                    <i class="fab fa-safari"></i>
+                </h3>
+                <table class="table table-sm" data-browser="safari">
+                    <tr>
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Version added
+                        </th>
+                    </tr>
+                </table>
+                <button type="button" class="extender btn btn-light btn-sm btn-block"
+                    title="Extend list with 5 more properties">5+</button>
+            </div>
+            <div class="text-center pb-3">
+                <h3 title="Safari(iOS)" aria-label="Results list for Safari(iOS)">
+                    <i class="fab fa-safari"></i><i class="fab fa-apple opsys"></i></i>
+                </h3>
+                <table class="table table-sm" data-browser="safari_ios">
+                    <tr>
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Version added
+                        </th>
+                    </tr>
+                </table>
+                <button type="button" class="extender btn btn-light btn-sm btn-block"
+                    title="Extend list with 5 more properties">5+</button>
+            </div>
+            <div class="text-center pb-3">
+                <h3 title="webview(android)" aria-label="Results list for Webview(android)">
+                    <i class="fas fa-cog"></i>
+                </h3>
+                <table class="table table-sm" data-browser="webview_android">
+                    <tr>
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Version added
+                        </th>
+                    </tr>
+                </table>
+                <button type="button" class="extender btn btn-light btn-sm btn-block"
+                    title="Extend list with 5 more properties">5+</button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="src/funktioner.js"></script>
+    <script src="src/app.js"></script>
+</body>
+
+</html>
