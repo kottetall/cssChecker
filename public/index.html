@@ -29,18 +29,19 @@
     </section>
 
     <section class="inputs container mt-4 mb-5 text-center">
-        <button type="button" class="test btn btn-secondary btn-lg btn-block">TEST BUTTON</button>
 
         <h2 class="w-75 mx-auto mb-3">Choose which CSS file(s) to go through</h2>
-
-        <input type="file" name="fileinput" id="fileinput" accept=".css" class=""
-            aria-label="Choose the files you want to check" multiple>
+        <form>
+            <input type="file" name="fileinput" id="fileinput" accept=".css" class=""
+                aria-label="Choose the files you want to check" multiple>
+            <input type="submit" id="skicka">
+        </form>
     </section>
 
     <section class="container flex-sm-row flex-column flex-wrap justify-content-around">
         <div class="row">
             <div class="col-sm-8 align-self-center">
-                <p class="h2 text-center">Your CSS is backwards compatible with the following
+                <p class="h2 text-center">Your CSS is <strong>fully</strong> backwards compatible with the following
                     browsers/versions</p>
 
             </div>
@@ -107,7 +108,7 @@
         <h2 class="text-center  mb-3">Detailed view</h2>
 
         <div class="browsers d-flex flex-sm-row flex-column flex-wrap justify-content-around">
-            <div class="text-center pb-3">
+            <div class="text-center pb-3 m-2 card">
                 <h3 title="Chrome" aria-label="Results list for Chrome">
                     <i class="fab fa-chrome"></i>
                 </h3>
@@ -124,7 +125,7 @@
                 <button type="button" class="extender btn btn-light btn-sm btn-block"
                     title="Extend list with 5 more properties">5+</button>
             </div>
-            <div class="text-center pb-3">
+            <div class="text-center pb-3 m-2 card">
                 <h3 title="Chrome(android)" aria-label="Results list for Chrome(android)">
                     <i class="fab fa-chrome"></i><i class="fab fa-android opsys"></i>
                 </h3>
@@ -141,7 +142,7 @@
                 <button type="button" class="extender btn btn-light btn-sm btn-block"
                     title="Extend list with 5 more properties">5+</button>
             </div>
-            <div class="text-center pb-3">
+            <div class="text-center pb-3 m-2 card">
                 <h3 title="Edge" aria-label="Results list for Edge">
                     <i class="fab fa-edge"></i>
                 </h3>
@@ -158,7 +159,7 @@
                 <button type="button" class="extender btn btn-light btn-sm btn-block"
                     title="Extend list with 5 more properties">5+</button>
             </div>
-            <div class="text-center pb-3">
+            <div class="text-center pb-3 m-2 card">
                 <h3 title="Internet Explorer" aria-label="Results list for Internet Explorer">
                     <i class="fab fa-internet-explorer"></i>
                 </h3>
@@ -175,7 +176,7 @@
                 <button type="button" class="extender btn btn-light btn-sm btn-block"
                     title="Extend list with 5 more properties">5+</button>
             </div>
-            <div class="text-center pb-3">
+            <div class="text-center pb-3 m-2 card">
                 <h3 title="Firefox" aria-label="Results list for Firefox">
                     <i class="fab fa-firefox"></i>
                 </h3>
@@ -192,7 +193,7 @@
                 <button type="button" class="extender btn btn-light btn-sm btn-block"
                     title="Extend list with 5 more properties">5+</button>
             </div>
-            <div class="text-center pb-3">
+            <div class="text-center pb-3 m-2 card">
                 <h3 title="Firefox(android)" aria-label="Results list for Firefox(android)">
                     <i class="fab fa-firefox"></i><i class="fab fa-android opsys"></i>
                 </h3>
@@ -209,7 +210,7 @@
                 <button type="button" class="extender btn btn-light btn-sm btn-block"
                     title="Extend list with 5 more properties">5+</button>
             </div>
-            <div class="text-center pb-3">
+            <div class="text-center pb-3 m-2 card">
                 <h3 title="Opera" aria-label="Results list for Opera">
                     <i class="fab fa-opera"></i>
                 </h3>
@@ -226,7 +227,7 @@
                 <button type="button" class="extender btn btn-light btn-sm btn-block"
                     title="Extend list with 5 more properties">5+</button>
             </div>
-            <div class="text-center pb-3">
+            <div class="text-center pb-3 m-2 card">
                 <h3 title="Safari" aria-label="Results list for Safari">
                     <i class="fab fa-safari"></i>
                 </h3>
@@ -243,7 +244,7 @@
                 <button type="button" class="extender btn btn-light btn-sm btn-block"
                     title="Extend list with 5 more properties">5+</button>
             </div>
-            <div class="text-center pb-3">
+            <div class="text-center pb-3 m-2 card">
                 <h3 title="Safari(iOS)" aria-label="Results list for Safari(iOS)">
                     <i class="fab fa-safari"></i><i class="fab fa-apple opsys"></i></i>
                 </h3>
@@ -260,7 +261,7 @@
                 <button type="button" class="extender btn btn-light btn-sm btn-block"
                     title="Extend list with 5 more properties">5+</button>
             </div>
-            <div class="text-center pb-3">
+            <div class="text-center pb-3 m-2 card">
                 <h3 title="webview(android)" aria-label="Results list for Webview(android)">
                     <i class="fas fa-cog"></i>
                 </h3>

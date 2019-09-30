@@ -1,5 +1,21 @@
 "use strict"
 
+function uppdateraAllt() {
+    const propsAndVals = JSON.parse(window.sessionStorage.getItem("propsAndVals"))
+
+    const tableOverview = document.querySelector(".overview")
+    addOverview(tableOverview, propsAndVals)
+
+    const tablesDetail = document.querySelectorAll(".browsers table")
+
+    for (const tableDetail of tablesDetail) {
+        addPropsAndVals(tableDetail, propsAndVals)
+        if (tableDetail.children.length > 1) {
+            tableDetail.nextElementSibling.style.display = "block"
+        }
+    }
+}
+
 function addPropsAndVals(table, propsAndVals) {
 
     const showingProps = table.children.length - 1

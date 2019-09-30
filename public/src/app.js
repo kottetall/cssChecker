@@ -2,49 +2,30 @@
 
 window.onload = () => {
 
-    // FÖR TEST TAS BORT VID LIVE
-
-    const testobjekt = {
-        chrome: [
-            ['user-select', '54'],
-            ['transition', '26'],
-            ['quotes', '11'],
-            ['box-shadow', '10'],
-            ['border-radius', '4'],
-            ['font-weight', '2'],
-            ['border', '1'],
-            ['outline', '1'],
-            ['font-size', '1'],
-            ['font', '1'],
-            ['vertical-align', '1']
-        ]
-    }
-
-    window.sessionStorage.setItem("propsAndVals", JSON.stringify(testobjekt))
-
-    // FÖR TEST TAS BORT VID LIVE
-
-    document.querySelector("#fileinput").addEventListener("change", async (e) => {
-        const uppladdadeFiler = e.target.files
-        const godkandaFilerString = await kontrollAvFiler(uppladdadeFiler)
-    })
-
-
-    document.querySelector(".test").addEventListener("click", (e) => {
-        console.log("funkar")
-        const propsAndVals = JSON.parse(window.sessionStorage.getItem("propsAndVals"))
-
-        const tableOverview = document.querySelector(".overview")
-        addOverview(tableOverview, propsAndVals)
-
-        const tablesDetail = document.querySelectorAll(".browsers table")
-
-        for (const tableDetail of tablesDetail) {
-            addPropsAndVals(tableDetail, propsAndVals)
-            if (tableDetail.children.length > 1) {
-                tableDetail.nextElementSibling.style.display = "block"
-            }
+    document.querySelector("#skicka").addEventListener("click", async (e) => {
+        e.preventDefault()
+        const input = document.querySelector("#fileinput")
+        //Skickar alla uppladdade filer och gör en grundkoll samt konverterar dem till en lång string
+        const godkandString = await kontrollAvFiler(input.files)
+        const data = {
+            text: godkandString
         }
+
+        const fetchOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+
+        const response = await fetch("upload/", fetchOptions)
+        const svar = await response.json()
+        //Sparar det lokalt så man inte behöver kontakta servern vid varje bearbetning av datan
+        window.sessionStorage.setItem("propsAndVals", JSON.stringify(svar))
+
+        uppdateraAllt()
+
     })
 
     const extenders = document.querySelectorAll(".extender")

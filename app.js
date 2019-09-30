@@ -1,9 +1,31 @@
 "use strict"
+const {
+    check,
+    validationResult
+} = require("express-validator") // Lägg till sen
+const express = require("express")
+const app = express()
+const PORT = 3000
+
+app.use(express.json()) //ev lägga till saker som ex limit
+app.listen(PORT, () => console.log(`server funkar och finns på "localhost:${PORT}"`))
+
+// ger startsidan
+app.use(express.static(__dirname + "/public"))
+
+app.post("/upload", (req, res) => {
+
+    console.log("Meddelande mottaget")
+    const compatList = lasFil(req.body.text)
+    res.json(compatList)
+})
+
+// FILHANTERINGEN - behöver snyggas till och separeras i olika filer
+
 
 // !!! Mappen "properties" behövs för att köra programmet. Dock har jag ännu inte kollat licenserna som gäller och därför följs den inte av GIT
 
 const fs = require("fs");
-const fileCheck = "./css/testfil.css" //filen som ska läsas
 const fileSource = fs.readdirSync("./properties/") // hämtar alla grundfiler från moz - array med filnamn + ändelse
 const browsers = [
     "chrome",
@@ -18,22 +40,15 @@ const browsers = [
     "webview_android"
 ]
 
-fs.readFile(fileCheck, "utf-8", (err, string) => {
-    // läser in testfil test.css
-    console.log(typeof fileCheck)
-    if (err) {
-        console.log(err)
-    } else {
-        const propVals = letaProps(string) //Kollar vilka "egenskaper" som finns
-        const props = findCommon(Object.keys(propVals), fileSource) //Hittar de filer från Moz som är kopplade till resp egenskap
-        const customJson = createCustomJson(props["commonProps"]) //Skapar Json med de egenskaper som finns i projektet tillsammans med vilka webbläsare/versioner som de är kompatibla med
-        const compatList = compatCheck(customJson) //Listar vad som är komp med resp webbläsare och sorterar detta utifrån den första versionen när det blev tillagd
-        // console.log(compatList)
-        // console.log(props["missingProps"])
-        // console.log(compatList)
 
-    }
-})
+function lasFil(string) {
+    const propVals = letaProps(string) //Kollar vilka "egenskaper" som finns
+    const props = findCommon(Object.keys(propVals), fileSource) //Hittar de filer från Moz som är kopplade till resp egenskap
+    const customJson = createCustomJson(props["commonProps"]) //Skapar Json med de egenskaper som finns i projektet tillsammans med vilka webbläsare/versioner som de är kompatibla med
+    const compatList = compatCheck(customJson) //Listar vad som är komp med resp webbläsare och sorterar detta utifrån den första versionen när det blev tillagd
+    return compatList
+}
+
 
 function letaProps(string) {
     const regexFirst = /\{[\w\s:\n;',#.()\/%-]+\}/g //Tar bort ID:n, klasser m.fl
@@ -108,8 +123,8 @@ function compatCheck(customJson) {
         }
     }
 
-
     for (const over in overview) {
+        // funkar inte riktigt, kolla IE i testfil som innehåller false, vilket hamnar i botten
         overview[over].sort((a, b) => {
             a[1] = a[1].toString().replace("≤", "")
             b[1] = b[1].toString().replace("≤", "")

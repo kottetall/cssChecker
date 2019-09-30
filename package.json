@@ -9,6 +9,8 @@
   "author": "Alexander Hedling | Kottetall",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
+    "express-validator": "^6.2.0",
     "node-fetch": "^2.6.0"
   }
 }

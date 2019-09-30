@@ -8,20 +8,17 @@ a {
     color: #2b2bff !important;
 }
 
+
+.overview td {
+    width: 50%;
+}
+
 .browsers .btn-light {
     border: 1px solid #ddd;
 }
 
-.test {
-    margin-bottom: 5vh;
-}
-
 .browsers .extender {
     display: none;
-}
-
-.overview td {
-    width: 50%;
 }
 
 .browsers .opsys {
